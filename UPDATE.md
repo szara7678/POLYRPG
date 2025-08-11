@@ -6,6 +6,6 @@
   - `src/renderer/*`, `src/engine/world.ts` 추가: 렌더/엔진 기초 유틸
   - `.github/workflows/deploy.yml` 추가: GH Pages 자동 배포
   - `public/404.html` 추가: SPA 라우팅 대응
-  - GH Pages 이슈 수정: 데이터 경로를 BASE_URL 기반으로 변경(`assetUrl()`), `vite.config.ts` base=`/POLYRPG/`, `public/404.html` 경로 수정
+  - 배포 변경: `gh-pages` 브랜치로 배포하도록 워크플로 추가(`.github/workflows/gh-pages.yml`), 기존 Pages 액션 워크플로는 수동 트리거로 전환
 
 

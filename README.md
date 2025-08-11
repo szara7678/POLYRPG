@@ -14,8 +14,8 @@
 - 빌드: `npm run build`
 
 ### 배포
-- `main`에 push 시 GitHub Pages 자동 배포
-- SPA 라우팅을 위해 `public/404.html` 리디렉션 사용
+- gh-pages 브랜치 배포: `main`에 push 시 `gh-pages` 브랜치로 자동 배포됩니다.
+- SPA 라우팅: `public/404.html`가 리디렉션을 수행합니다.
 
 ### 현재 상태
 - M0: 부트스트랩/씬/라이트/컨트롤/워크플로우 완료
