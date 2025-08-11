@@ -1,0 +1,14 @@
+{
+  "buildings": [
+    {
+      "id": "wizard_tower",
+      "jobs": { "magus": 3 },
+      "aura": { "mana_gain": 0.15, "ritual_range": 10 },
+      "cost": { "stone": 30, "crystal": 5 },
+      "req": ["scribe_hut"],
+      "effects": ["unlock:ritual_minor_rain", "teach_bonus:arcana=0.2"]
+    }
+  ]
+}
+
+

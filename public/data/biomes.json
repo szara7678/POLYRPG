@@ -1,0 +1,8 @@
+{
+  "biomes": [
+    { "id": "plains", "color": "#8fbc8f", "spawn": { "tree": 0.2, "grass": 0.8 } },
+    { "id": "forest", "color": "#2e8b57", "spawn": { "tree": 0.8, "grass": 0.6 } }
+  ]
+}
+
+
