@@ -9,7 +9,7 @@ import { ChunkedTileMap } from './renderer/tilemap';
 import { applyWalkBounce, wanderAndAvoid } from './engine/steering';
 import { GateSelector } from './engine/ai/bt';
 import type { ActionId } from './engine/ai/utility';
-import { loadAll } from './engine/data_loader';
+import { loadAll, assetUrl } from './engine/data_loader';
 
 async function init(): Promise<void> {
   const container = document.getElementById('app');
@@ -19,12 +19,12 @@ async function init(): Promise<void> {
 
   // 데이터 사전 로드
   await loadAll([
-    { url: '/data/actions.json' },
-    { url: '/data/buildings.json' },
-    { url: '/data/tech.json' },
-    { url: '/data/spells.json' },
-    { url: '/data/biomes.json' },
-    { url: '/data/cohorts.json' },
+    { url: assetUrl('data/actions.json') },
+    { url: assetUrl('data/buildings.json') },
+    { url: assetUrl('data/tech.json') },
+    { url: assetUrl('data/spells.json') },
+    { url: assetUrl('data/biomes.json') },
+    { url: assetUrl('data/cohorts.json') },
   ]);
 
   const { scene, camera, renderer } = createBasicScene(container, width, height);
