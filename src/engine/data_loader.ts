@@ -15,8 +15,14 @@ export async function loadAll(bundles: DataBundle<any>[]): Promise<void> {
 }
 
 export function assetUrl(relative: string): string {
-  // BASE_URL은 vite.config.ts의 base('/polyrpg/')가 빌드 시 주입됨
-  return new URL(relative, import.meta.env.BASE_URL).toString();
+  const base = (import.meta as any).env?.BASE_URL ?? '/';
+  try {
+    // 표준 new URL은 절대 base가 필요하므로 origin을 붙여줌
+    return new URL(relative, window.location.origin + base).toString();
+  } catch {
+    const normalizedBase = base.endsWith('/') ? base : base + '/';
+    return normalizedBase + relative.replace(/^\//, '');
+  }
 }
 
 
