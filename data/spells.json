@@ -1,0 +1,17 @@
+{
+  "spells": [
+    {
+      "id": "ritual_minor_rain",
+      "type": "ritual",
+      "participants": 3,
+      "cost": { "mana": 20, "herb": 2 },
+      "duration": 600,
+      "success": { "rain": "+0.4", "crop_growth": "+0.1" },
+      "fail": { "mana_burnout": "0.3", "madness": "0.05" },
+      "affinity": ["water", "life"],
+      "req": ["wizard_tower"]
+    }
+  ]
+}
+
+

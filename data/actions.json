@@ -1,0 +1,18 @@
+{
+  "actions": [
+    { "id": "PATROL" },
+    { "id": "FORAGE" },
+    { "id": "HUNT" },
+    { "id": "FARM" },
+    { "id": "BUILD" },
+    { "id": "GARRISON" },
+    { "id": "SCOUT" },
+    { "id": "RAID" },
+    { "id": "FLEE" },
+    { "id": "TREAT" },
+    { "id": "CAST" },
+    { "id": "RITUAL_JOIN" }
+  ]
+}
+
+

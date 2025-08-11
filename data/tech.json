@@ -1,0 +1,8 @@
+{
+  "tech": [
+    { "id": "forging", "alpha": 1, "beta": 1, "unlocks": ["forge"] },
+    { "id": "scribing", "alpha": 1, "beta": 1, "unlocks": ["scribe_hut"] }
+  ]
+}
+
+
