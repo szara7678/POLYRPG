@@ -367,3 +367,4 @@ SharedArrayBuffer 미사용(GH Pages는 COOP/COEP 헤더 X) → Transferable Arr
 문화 수렴 → 전이 감쇠/상한, 무작위 돌연변이, 외생 이벤트(마나 폭풍)
 
 콘텐츠 병목 → 데이터 외부화(JSON), 템플릿·툴로 제작 속도 확보
+.
