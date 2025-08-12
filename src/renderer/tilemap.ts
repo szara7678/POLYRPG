@@ -8,6 +8,7 @@ interface Chunk {
 export class ChunkedTileMap {
   private readonly group = new THREE.Group();
   private readonly chunks: Chunk[] = [];
+  private readonly mat: THREE.MeshLambertMaterial;
 
   constructor(
     private readonly worldSize = 80,
@@ -17,14 +18,14 @@ export class ChunkedTileMap {
     const tilesPerSide = Math.floor(this.worldSize / this.tileSize);
     const chunksPerSide = Math.ceil(tilesPerSide / this.chunkSize);
     const planeGeom = new THREE.PlaneGeometry(this.tileSize, this.tileSize);
-    const mat = new THREE.MeshLambertMaterial({ vertexColors: true });
+    this.mat = new THREE.MeshLambertMaterial({ vertexColors: true });
 
     for (let cx = 0; cx < chunksPerSide; cx++) {
       for (let cz = 0; cz < chunksPerSide; cz++) {
         const countX = Math.min(this.chunkSize, tilesPerSide - cx * this.chunkSize);
         const countZ = Math.min(this.chunkSize, tilesPerSide - cz * this.chunkSize);
         const count = countX * countZ;
-        const inst = new THREE.InstancedMesh(planeGeom, mat, count);
+        const inst = new THREE.InstancedMesh(planeGeom, this.mat, count);
         const color = new THREE.Color();
         const dummy = new THREE.Object3D();
 
@@ -67,6 +68,15 @@ export class ChunkedTileMap {
     for (const ch of this.chunks) {
       ch.mesh.visible = camPos.distanceToSquared(ch.center) <= maxDistSq;
     }
+  }
+
+  setRainTint(intensity: number): void {
+    // 0..1 intensity → desaturate and darken ground slightly
+    const c = new THREE.Color();
+    const base = new THREE.Color(0xffffff);
+    c.lerpColors(base, new THREE.Color(0x88aadd), Math.min(1, Math.max(0, intensity)) * 0.5);
+    this.mat.color.copy(c);
+    this.mat.needsUpdate = true;
   }
 }
 

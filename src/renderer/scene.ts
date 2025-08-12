@@ -20,6 +20,9 @@ export function createBasicScene(container: HTMLElement, width: number, height: 
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   container.appendChild(renderer.domElement);
 
+  // HUD 컨테이너를 위한 스타일 보정
+  Object.assign(container.style, { position: 'relative' });
+
   const hemi = new THREE.HemisphereLight(0xffffff, 0x334466, 0.7);
   scene.add(hemi);
   const dir = new THREE.DirectionalLight(0xffffff, 0.7);

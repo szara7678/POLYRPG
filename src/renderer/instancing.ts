@@ -76,6 +76,12 @@ export function createTileGridInstanced(size: number, step: number): THREE.Insta
   return inst;
 }
 
+// 더티 인스턴스 업데이트 스케치: 변경된 인덱스만 위치/색 갱신
+export function updateInstanceMatrix(inst: THREE.InstancedMesh, index: number, matrix: THREE.Matrix4): void {
+  inst.setMatrixAt(index, matrix);
+  inst.instanceMatrix.needsUpdate = true;
+}
+
 export function createGrassInstanced(count: number, areaSize = 40): THREE.InstancedMesh {
   const geom = new THREE.PlaneGeometry(0.25, 0.8);
   // 세로 배치

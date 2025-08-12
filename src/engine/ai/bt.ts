@@ -1,5 +1,5 @@
 import { ECS, Entity } from '../ecs';
-import { ActionId, UtilityContext, defaultWeights, evaluateUtility } from './utility';
+import { ActionId, UtilityContext, defaultWeights, evaluateUtilityDetailed } from './utility';
 
 export interface GateNodeConfig { candidates: ActionId[] }
 
@@ -15,7 +15,8 @@ export class GateSelector {
     let best: ActionId = 'IDLE';
     let bestScore = -Infinity;
     for (const a of this.cfg.candidates) {
-      const s = evaluateUtility(a, ctx, defaultWeights);
+      const breakdown = evaluateUtilityDetailed(a, ctx, defaultWeights, 0);
+      const s = breakdown.total;
       if (s > bestScore) {
         bestScore = s;
         best = a;
