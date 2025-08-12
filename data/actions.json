@@ -1,17 +1,17 @@
 {
   "actions": [
-    { "id": "PATROL" },
-    { "id": "FORAGE" },
-    { "id": "HUNT" },
-    { "id": "FARM" },
-    { "id": "BUILD" },
-    { "id": "GARRISON" },
-    { "id": "SCOUT" },
-    { "id": "RAID" },
-    { "id": "FLEE" },
-    { "id": "TREAT" },
-    { "id": "CAST" },
-    { "id": "RITUAL_JOIN" }
+    { "id": "PATROL", "baseRole": 0.5, "cost": 0.0, "instantReward": 0.01 },
+    { "id": "FORAGE", "baseRole": 0.45, "cost": 0.1, "instantReward": 0.02 },
+    { "id": "HUNT", "baseRole": 0.5, "cost": 0.2, "instantReward": 0.03 },
+    { "id": "FARM", "baseRole": 0.4, "cost": 0.15, "instantReward": 0.02 },
+    { "id": "BUILD", "baseRole": 0.35, "cost": 0.25, "instantReward": 0.02 },
+    { "id": "GARRISON", "baseRole": 0.3, "cost": 0.05, "instantReward": 0.0 },
+    { "id": "SCOUT", "baseRole": 0.55, "cost": 0.1, "instantReward": 0.02 },
+    { "id": "RAID", "baseRole": 0.6, "cost": 0.4, "instantReward": 0.03 },
+    { "id": "FLEE", "baseRole": 0.0, "cost": 0.0, "instantReward": -0.02 },
+    { "id": "TREAT", "baseRole": 0.25, "cost": 0.2, "instantReward": 0.02 },
+    { "id": "CAST", "baseRole": 0.35, "cost": 0.3, "instantReward": 0.01 },
+    { "id": "RITUAL_JOIN", "baseRole": 0.35, "cost": 0.3, "instantReward": 0.01 }
   ]
 }
 

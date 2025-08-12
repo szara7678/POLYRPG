@@ -1,10 +1,10 @@
 {
   "cohorts": [
-    { "id": "infantry", "speed": 1.3 },
-    { "id": "archer", "speed": 1.25 },
-    { "id": "scout", "speed": 1.6 },
-    { "id": "magus", "speed": 1.2 },
-    { "id": "farmer", "speed": 1.1 }
+    { "id": "infantry", "speed": 1.3, "q": { "PATROL": 0.2, "GARRISON": 0.3, "RAID": 0.4, "FLEE": -0.2 } },
+    { "id": "archer",  "speed": 1.25, "q": { "PATROL": 0.25, "GARRISON": 0.35, "RAID": 0.3, "FLEE": -0.15 } },
+    { "id": "scout",   "speed": 1.6,  "q": { "SCOUT": 0.5, "PATROL": 0.35, "FLEE": 0.0 } },
+    { "id": "magus",   "speed": 1.2,  "q": { "CAST": 0.5, "GARRISON": 0.2, "FLEE": -0.1 } },
+    { "id": "farmer",  "speed": 1.1,  "q": { "FARM": 0.6, "FORAGE": 0.3, "FLEE": -0.05 } }
   ]
 }
 
