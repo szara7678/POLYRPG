@@ -9,10 +9,12 @@ export class Inspector {
   private raycaster = new THREE.Raycaster();
   private mouse = new THREE.Vector2();
   private onSelect?: (e: Entity | null) => void;
+  private readonly dom: HTMLElement;
 
   constructor(
     private readonly ecs: ECS,
     private readonly camera: THREE.PerspectiveCamera,
+    dom: HTMLElement,
     private readonly pickables: () => THREE.Object3D[],
     private readonly decisions?: DecisionRecorder,
     private readonly social?: SocialSystem,
@@ -34,6 +36,7 @@ export class Inspector {
     } as CSSStyleDeclaration);
     document.body.appendChild(this.el);
     this.onSelect = onSelect;
+    this.dom = dom;
     window.addEventListener('click', this.onClick, { passive: true });
   }
 
@@ -42,9 +45,9 @@ export class Inspector {
   getSelected(): Entity | null { return this.selected; }
 
   private onClick = (ev: MouseEvent): void => {
-    const rect = (ev.target as HTMLElement).ownerDocument.documentElement.getBoundingClientRect();
-    const x = ev.clientX / rect.width * 2 - 1;
-    const y = -(ev.clientY / rect.height) * 2 + 1;
+    const rect = this.dom.getBoundingClientRect();
+    const x = ((ev.clientX - rect.left) / rect.width) * 2 - 1;
+    const y = -((ev.clientY - rect.top) / rect.height) * 2 + 1;
     this.mouse.set(x, y);
     this.raycaster.setFromCamera(this.mouse, this.camera);
     const hits = this.raycaster.intersectObjects(this.pickables(), true);

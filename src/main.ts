@@ -106,7 +106,7 @@ async function init(): Promise<void> {
       if (dx*dx + dz*dz <= 10*10) rl.addReward(e, +0.4);
     }
   });
-  const inspector = new Inspector(ecs, camera, () => agents.pickables, decisions, social, (sel) => {
+  const inspector = new Inspector(ecs, camera, renderer.domElement, () => agents.pickables, decisions, social, (sel) => {
     if (sel) agentModal.showFor(sel);
   });
   const agentModal = new AgentModal(document.body, ecs);

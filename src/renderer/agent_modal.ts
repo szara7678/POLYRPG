@@ -45,6 +45,9 @@ export class AgentModal {
   private showTab(id: string): void { for (const [k, p] of this.pages) p.style.display = k === id ? 'block' : 'none'; }
 
   showFor(entity: Entity): void {
+    // 선택된 엔티티가 유효하지 않으면 모달을 닫음(일부 픽 실패/LOD과의 타이밍 문제 대비)
+    const p = this.ecs.positions.get(entity);
+    if (!p) { this.hide(); return; }
     this.selected = entity;
     this.refresh();
     this.root.style.display = 'block';
